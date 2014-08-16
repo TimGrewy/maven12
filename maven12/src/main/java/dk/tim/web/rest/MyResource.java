@@ -1,4 +1,4 @@
-package dk.tim.maven12;
+package dk.tim.web.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
