@@ -18,6 +18,10 @@ public class MessageLocalStorage {
 	}
 
 	public static List<Message> getAllMessages() {
+		if (messages.isEmpty()) {
+			MessageLocalStorage.addMessage(new Message("Initial message"));
+		}
+
 		return Collections.unmodifiableList(messages);
 	}
 }

@@ -10,4 +10,9 @@ public class Message {
 	public String getMessage() {
 		return message;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Message [message=%s]", message);
+	}
 }
