@@ -6,10 +6,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
 
 import dk.tim.domain.message.Message;
+import dk.tim.rest.response.ResponseFactory;
 
 @Path("/messages")
 public class AllMessagesService {
@@ -17,10 +19,10 @@ public class AllMessagesService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getAllMessages() {
+	public Response getAllMessages() {
 		List<Message> allMessages = MessageLocalStorage.getAllMessages();
 		String json = gson.toJson(allMessages);
 		System.out.println(json);
-		return json;
+		return ResponseFactory.buildOKResponseWithCrossSiteCompatability(json);
 	}
 }
