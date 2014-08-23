@@ -38,9 +38,6 @@ public class MessageService {
 	//http://localhost:8080/maven12/rest/message/1
 	public Response getMessage(@PathParam("messageid") int messageId) {
 		System.out.println("getMessage: " + messageId);
-		//		if (messageId == 0) {
-		//			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		//		}
 		List<Message> allMessages = MessageLocalStorage.getAllMessages();
 
 		Message message = allMessages.get(0);
