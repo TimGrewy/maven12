@@ -25,4 +25,14 @@ public class AllMessagesService {
 		System.out.println(json);
 		return ResponseFactory.buildOKResponseWithCrossSiteCompatability(json);
 	}
+
+	@GET
+	@Path("/clear")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response clearAllMessages() {
+		System.out.println("Clearing messages");
+		MessageLocalStorage.clearAllMessages();
+
+		return ResponseFactory.buildCreatedResponseWithCrossSiteCompatability();
+	}
 }

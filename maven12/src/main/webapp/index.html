@@ -10,6 +10,7 @@
   <body ng-controller="MainController">
     <h1>Welcome</h1>
     <h3>{{error}}</h3>
+    <p style="font-size:8px;">Page loads: {{pageLoads}}</p>
     
     <h2>Add message:</h2>
     <form ng-submit="createMessage(newMessage)">
@@ -18,8 +19,8 @@
     </form>
     
     <h2>Messages: </h2>
-    <div>
-      {{messages}}
+    <div ng-repeat="message in messages">
+      {{message.message}}
     </div>
     
     

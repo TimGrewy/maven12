@@ -20,4 +20,9 @@ public class MessageLocalStorage {
 	public static List<Message> getAllMessages() {
 		return Collections.unmodifiableList(messages);
 	}
+
+	public static void clearAllMessages() {
+		messages.clear();
+		;
+	}
 }
