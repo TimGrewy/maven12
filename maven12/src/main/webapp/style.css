@@ -1,0 +1,22 @@
+/* Styles go here */
+.chatWindow {
+  border: 1px solid;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.header{
+  font: bold 34px "Century Schoolbook", Georgia, Times, serif;
+	color: #333;
+	line-height: 90%;
+	letter-spacing: -2px;  
+}
+
+.addMessageHeader {
+  font-size: 20px;
+}
+
+.chatHeader {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}

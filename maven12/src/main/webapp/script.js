@@ -1,5 +1,7 @@
 // Creating in this plunk - http://plnkr.co/edit/RQrvGrgSCBZuwS1WG7qK?p=preview
 
+var app = angular.module("chat", ['luegg.directives']);
+
 var MainController = function($scope, $http, $interval) {
     $http.defaults.useXDomain = true;
     var baseUrl = 'http://localhost:8080';
@@ -11,14 +13,12 @@ var MainController = function($scope, $http, $interval) {
     $http.defaults.useXDomain = true;
     var url = baseUrl + '/maven12/rest/messages';
 
-    $http({
-      method: 'GET',
-      url: url
-    }).
-    success(function(data, status, headers, config) {
+    $http({method: 'GET', url: url})
+    .success(function(data, status, headers, config) {
       $scope.messages = data;
-    }).
-    error(function(data, status, headers, config) {
+      $scope.error = '';
+    })
+    .error(function(data, status, headers, config) {
       $scope.error = 'Error: Status: ' + status;
     });
   }
@@ -51,3 +51,5 @@ var MainController = function($scope, $http, $interval) {
   $interval($scope.refreshPage, 2000);
 
 }
+
+  app.controller("MainController", MainController);

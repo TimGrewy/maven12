@@ -1,29 +1,46 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 
-  <head>
-    <script data-require="angular.js@1.3.0-beta.5" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-  </head>
+<head>
+  <script data-require="angular.js@1.3.0-beta.5" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <script src="https://rawgithub.com/Luegg/angularjs-scroll-glue/master/src/scrollglue.js"></script>
 
-  <body ng-controller="MainController">
-    <h1>Welcome</h1>
+    <style type="text/css">
+      [scroll-glue]{
+        height: 300px;
+        overflow-y: scroll;
+        background-color: #F0E7E4;
+        overflow-x: auto;
+      }
+    </style>
+  
+  
+</head>
+
+<body ng-controller="MainController" ng-app="chat">
+  <div class="header">Welcome to Chat'ster</div>
+  <div style="background: red;">
     <h3>{{error}}</h3>
-    <p style="font-size:8px;">Page loads: {{pageLoads}}</p>
-    
-    <h2>Add message:</h2>
-    <form ng-submit="createMessage(newMessage)">
-      <input type="input" required ng-model="newMessage">
-      <input type="submit">
-    </form>
-    
-    <h2>Messages: </h2>
-    <div ng-repeat="message in messages">
-      {{message.message}}
-    </div>
-    
-    
-  </body>
+  </div>
+  <p style="font-size:8px;">Page loads: {{pageLoads}}</p>
+
+  <div class="addMessageHeader header">Add message:</div>
+  <form ng-submit="createMessage(newMessage)">
+    <input type="input" required ng-model="newMessage" style="width: 700px;">
+    <input type="submit">
+  </form>
+
+  <div class="chatHeader header">Messages: </div>
+  <div class="chatWindow" scroll-glue>
+    <span style="display:block" ng-repeat="message in messages">
+      <span style="font-style: italic;">{{message.createdTime}}</span>: <span style="">{{message.message}}</span>
+    </span>
+  </div>
+
+
+
+</body>
 
 </html>
